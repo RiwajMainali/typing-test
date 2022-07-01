@@ -1,51 +1,31 @@
-import ReactDOM from 'react-dom/client';
 import React from 'react';
 
-function App() {
-
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  class Login extends React.Component{
-    render(){
-      //popup
-      return(
-        <div>
-          <div className="login-popup">
-            <div className="login-popup-content">
-              <div className="login-popup-header">
-                <h1>Login</h1>
-              </div>
-              <div className="login-popup-body">
-                <div className="login-popup-body-input">
-
-                  <input type="text" placeholder="Username" />
-
-                  <button>Login</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
+import Login from './components/Login';
+import { useState } from 'react';
+import  './index.css';
+function App(){
+  const [btnpopup, setBtnpopup] = useState(false);
+  let [data, setdata]=useState('');
+  const handleChange = (event) => {
+    setdata(event.target.value);
   }
-  class Navbar extends React.Component{
-  render(){
-    return(
-      <div>
-        <h1>Navbar</h1>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li onClick={()=>{root.render(<Login/>)}}>Login</li>
-        </ul>
-      </div>
-    );
-  }
+  return(
+    <div className="App">
+      <main>
+      <h1>Welcome {data}</h1>
+      <button className="loginbtn" onClick={() => setBtnpopup(true)}>Login/Register</button>
+        <Login trigger={btnpopup} setTrigger = {setBtnpopup}>
+          <h2>login</h2>
+          <form>
+            <label>
+              username:
+              <input type="text" value={data} onChange={handleChange} placeholder="Enter Username"/>
+            </label>
+          </form>
+        </Login>
+      </main>
+    </div>
+  );
 }
-
-root.render(<Navbar />);
-}
-
 
 export default App;
