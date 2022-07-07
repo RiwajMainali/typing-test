@@ -1,3 +1,7 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
+"vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false
+}
