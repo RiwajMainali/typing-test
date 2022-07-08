@@ -1,49 +1,54 @@
-import React from "react";
-import Modals from "./components/Modal";
+import React, { useEffect } from "react";
+import { FirebaseApp } from "firebase/app";
 import Login from "./components/Login";
-import RandomWords from "random-words";
-
+import random_words from "random-words";
 import { useState } from "react";
-function returnsRandomWords(x) {
-  return RandomWords(x);
-}
-function App() {
-  const [btnpopup, setBtnpopup] = useState(false);
-  let [data, setdata] = useState("");
-  var x = 0;
-  const [words, setWords] = useState(returnsRandomWords(x));
 
-  const handleChange = (event) => {
-    setdata(event.target.value);
+function App() {
+  function randomwords() {
+    return new Array(200).fill(null).map(() => random_words());
+  }
+  const [words, setWords] = useState([]);
+  useEffect(() => {
+    setWords(randomwords());
+  }, []);
+  const [btnPopup, setbtnPopup] = useState(false);
+  let [loginData, setLoginData] = useState("");
+
+  const loginChange = (event) => {
+    setLoginData(event.target.value);
   };
   return (
-    <div class="App">
-      <div class="login">
+    <div className="App">
+      <div className="login">
         <main>
-          <div class="pl-1 bg-green-500">
-            <button class=" " onClick={() => setBtnpopup(true)}>
-              Login/Register
-            </button>
-            <Login trigger={btnpopup} setTrigger={setBtnpopup}>
+          <div className=" pl-1 bg-green-500">
+            <button onClick={() => setbtnPopup(true)}>Login/Register</button>
+            <Login trigger={btnPopup} setTrigger={setbtnPopup}>
               <h2>login</h2>
               <form>
                 <label>
                   username:
                   <input
-                    className="bg-blue-200"
+                    className="bg-blue-200 flex"
                     type="text"
-                    value={data}
-                    onChange={handleChange}
+                    value={loginData}
+                    onChange={loginChange}
                     placeholder="Enter Username"
                   />
                 </label>
               </form>
             </Login>
           </div>
+          <div className="p-5 card bg-red-200 ">
+            {words.map((words, i) => (
+              <>
+                <span> </span>
+                <span>{words}</span>
+              </>
+            ))}
+          </div>
         </main>
-        <div class="typeracer p-1 border">
-          <Modals Title="title" body="body" />
-        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import "../index.css";
 function Login(props) {
   return props.trigger ? (
     <div
-      class="px-6
+      className="px-6
       py-2.5
       bg-blue-600
       text-white
@@ -17,7 +17,7 @@ function Login(props) {
       focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
       active:bg-blue-800 active:shadow-lg
       transition
-      duration-150
+      duration-300
       ease-in-out"
     >
       <div className="">
@@ -28,7 +28,9 @@ function Login(props) {
           >
             Close
           </button>
-          {props.children}{" "}
+
+          {props.children}
+          {""}
         </div>
       </div>
     </div>
