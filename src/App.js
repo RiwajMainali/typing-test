@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FirebaseApp } from "firebase/app";
+
 import Login from "./components/Login";
 import random_words from "random-words";
 import { useState } from "react";
