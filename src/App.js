@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function App() {
   function randomwords() {
-    return new Array(200).fill(null).map(() => random_words());
+    return new Array(400).fill(null).map(() => random_words());
   }
   const [words, setWords] = useState([]);
   useEffect(() => {
