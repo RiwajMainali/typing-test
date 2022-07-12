@@ -19,10 +19,10 @@ function App() {
     setLoginData(event.target.value);
   };
   return (
-    <div className="App">
+    <div className="App ">
       <div className="login">
         <main>
-          <div className=" pl-1 bg-blue-500">
+          <div className=" pl-1  bg-blue-500">
             <button onClick={() => setbtnPopup(true)}>Login/Register</button>
             <Login trigger={btnPopup} setTrigger={setbtnPopup}>
               <h2>login</h2>
