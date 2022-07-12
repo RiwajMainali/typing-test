@@ -22,7 +22,7 @@ function App() {
     <div className="App ">
       <div className="login">
         <main>
-          <div className=" pl-1  bg-blue-500  absolute  left-1/2 transform -translate-x-1/2">
+          <div className="bg-blue-500  absolute  left-1/2 transform -translate-x-1/2">
             <button onClick={() => setbtnPopup(true)}>Login/Register</button>
             <Login trigger={btnPopup} setTrigger={setbtnPopup}>
               <h2>login</h2>
