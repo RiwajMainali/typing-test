@@ -28,7 +28,7 @@ function App() {
               <h2>login</h2>
               <form>
                 <label>
-                  username:
+                  username:&nbsp;&nbsp;
                   <input
                     className="bg-blue-200 flex"
                     type="text"
