@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <div className="login">
         <main>
-          <div className=" pl-1 bg-green-500">
+          <div className=" pl-1 bg-blue-500">
             <button onClick={() => setbtnPopup(true)}>Login/Register</button>
             <Login trigger={btnPopup} setTrigger={setbtnPopup}>
               <h2>login</h2>
@@ -40,7 +40,7 @@ function App() {
               </form>
             </Login>
           </div>
-          <div className="p-5 card bg-red-200 ">
+          <div className="p-5 card bg-blue-200 ">
             {words.map((words, i) => (
               <>
                 <span> </span>
