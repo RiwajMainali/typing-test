@@ -4,6 +4,7 @@ function Login(props) {
   return props.trigger ? (
     <div
       className="px-6
+      
       py-2.5
       bg-blue-600
       text-white
@@ -18,12 +19,13 @@ function Login(props) {
       active:bg-blue-800 active:shadow-lg
       transition
       duration-300
+      xl:px-8
       ease-in-out"
     >
       <div className="">
-        <div className="">
+        <div>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full "
             onClick={() => props.setTrigger(false)}
           >
             Close
