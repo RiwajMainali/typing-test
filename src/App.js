@@ -47,15 +47,8 @@ function App() {
               <br></br>
             </main>
           </div>
-          <div className="start flex-1">
-            {setStart ? starts : null}
-            <>
-              <span> </span>
-              <button onClick={() => setStart(false)}>stop</button>
-            </>
-          </div>
         </div>
-        <Start trigger={start} setTrigger={setStart}></Start>
+        <Start trigger={true} setTrigger={true}></Start>
       </div>
     </div>
   );
