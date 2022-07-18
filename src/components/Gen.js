@@ -12,6 +12,6 @@ function Gen() {
   useEffect(() => {
     setWords(generate());
   }, []);
-  return JSON.stringify(words);
+  return words;
 }
 export default Gen;
