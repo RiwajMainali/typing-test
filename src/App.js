@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Start from "./components/Start";
 import Login from "./components/Login";
 
