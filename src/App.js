@@ -14,9 +14,7 @@ function App() {
 
   return (
     <div className="bg-gray-200">
-      <div
-        className={"bg-blue-400 opacity-100 w-screen h-screen ${btnPopup? }"}
-      >
+      <div className={"bg-blue-400 opacity-100 w-screen h-screen "}>
         <div className="App">
           <div className="login">
             <main>
@@ -48,7 +46,11 @@ function App() {
             </main>
           </div>
         </div>
-        <Start trigger={true} setTrigger={true}></Start>
+        <Start
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          trigger={true}
+          setTrigger={true}
+        ></Start>
       </div>
     </div>
   );
