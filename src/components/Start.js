@@ -26,13 +26,18 @@ function Start() {
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2"></div>
           <p className="text-gray-700 text-base">
-            <input
-              className="-z-999 absolute align-center bg-blue-500"
-              type="text"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-            <span>{wordsString}</span>
+            <span className="">
+              {wordsString}
+
+              <input
+                className=" -z-999 w-max-content align-center opacity-100 bg-blue-500 "
+                type="text"
+                width="500"
+                value={userInput}
+                defaultValue={wordsString}
+                onChange={(e) => setUserInput(e.target.value)}
+              />
+            </span>
             <br />
             {console.log(userInput)}
           </p>
