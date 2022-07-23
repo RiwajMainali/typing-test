@@ -4,13 +4,12 @@ import Login from "./components/Login";
 
 function App() {
   const [btnPopup, setBtnPopup] = useState(false);
-  const [start, setStart] = useState(false);
+
   let [loginData, setLoginData] = useState("");
 
   const loginChange = (event) => {
     setLoginData(event.target.value);
   };
-  const starts = <button onClick={() => setStart(true)}>Start </button>;
 
   return (
     <div className="bg-gray-200">
@@ -46,11 +45,7 @@ function App() {
             </main>
           </div>
         </div>
-        <Start
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          trigger={true}
-          setTrigger={true}
-        ></Start>
+        <Start className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></Start>
       </div>
     </div>
   );
