@@ -60,7 +60,6 @@ function Start() {
           <p className="text-gray-700 text-base">
             <span className="">
               <span>{testString}</span>
-
               <input
                 className=" -z-999  align-center opacity-100 bg-blue-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-700 dark:border-blue-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="text"
@@ -76,6 +75,7 @@ function Start() {
             </span>
             <br />
             {uncorrect}
+            <div class="text-gray-800">WPM</div>
           </p>
         </div>
         <div className="px-6 pt-4 pb-2"></div>
