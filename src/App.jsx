@@ -1,53 +1,74 @@
-import { useState } from "react";
-import Start from "./components/Start";
-import Login from "./components/Login";
+import React, { useEffect, useState } from "react";
+import { Navbar, NavItem, NavLink, NavbarBrand, Nav } from "reactstrap";
+import Input from "./components/Input";
+import Timer from "./components/Timer";
+import Stats from "./components/Stats";
 
+const totalTime = 60;
 function App() {
-  const [btnPopup, setBtnPopup] = useState(false);
+  const [time, setTime] = useState(totalTime);
+  const [startTimer, setStartTimer] = useState(false);
+  const [stats, setStats] = useState([]);
+  const [modalIsOpen, modalToggle] = useState(false);
 
-  let [loginData, setLoginData] = useState("");
-
-  const loginChange = (event) => {
-    setLoginData(event.target.value);
+  const startCountdown = async () => {
+    for (let i = totalTime - 1; i >= 0; i--) {
+      await new Promise((r) => setTimeout(r, 1000));
+      setTime(i);
+    }
+    setStartTimer(false);
   };
 
+  useEffect(() => {
+    if (time === 0) {
+      modalToggle(true);
+
+      setTime(totalTime);
+    }
+  }, [time]);
+
+  useEffect(() => {
+    if (stats !== []) {
+      const wpm = stats[0];
+    }
+  }, [stats]);
+
   return (
-    <div className="bg-gray-200">
-      <div className={"bg-blue-400 opacity-100 w-screen h-screen "}>
-        <div className="App">
-          <div className="login">
-            <main>
-              <div className="flex-1 bg-blue-500 px-2 absolute  left-1/2 transform -translate-x-1/2">
-                <button
-                  onClick={() => {
-                    setBtnPopup(true);
-                  }}
-                >
-                  Login/Register
-                </button>
-                <Login className="" trigger={btnPopup} setTrigger={setBtnPopup}>
-                  <h2>login</h2>
-                  <form>
-                    <label>
-                      username:&nbsp;&nbsp;
-                      <input
-                        className="bg-blue-200 mx-auto flex text-black"
-                        type="text"
-                        value={loginData}
-                        onChange={loginChange}
-                        placeholder="Enter Username"
-                      />
-                    </label>
-                  </form>
-                </Login>
-              </div>
-              <br></br>
-            </main>
-          </div>
-        </div>
-        <Start className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></Start>
-      </div>
-    </div>
+    <>
+      <Navbar>
+        <NavbarBrand></NavbarBrand>
+        <Nav className="mr-2ex" navbar>
+          <NavItem>
+            <NavLink
+              href="https://github.com/RiwajMainali/typing-test"
+              target="_blank"
+            >
+              <div className="link">Github</div>
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
+
+      <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
+      <Timer>{time}</Timer>
+      <Input
+        signalStart={() => {
+          if (!startTimer) {
+            setStartTimer(true);
+            startCountdown();
+          }
+        }}
+        time={time}
+        setStats={setStats}
+      />
+      <Stats
+        isOpen={modalIsOpen}
+        toggle={async () => {
+          modalToggle(false);
+        }}
+        stats={stats}
+      />
+    </>
   );
 }
 
