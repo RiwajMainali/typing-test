@@ -48,7 +48,6 @@ function App() {
           </NavItem>
         </Nav>
       </Navbar>
-
       <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
       <Timer>{time}</Timer>
       <Input
@@ -61,6 +60,7 @@ function App() {
         time={time}
         setStats={setStats}
       />
+      <h3 style={{ textAlign: "center" }} >Click in the box and start typing!</h3>
       <Stats
         isOpen={modalIsOpen}
         toggle={async () => {
