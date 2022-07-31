@@ -15,7 +15,7 @@ function Start() {
   const [uncorrect, setUncorrect] = useState(0);
   const [all, setAll] = useState(0);
   const startCountdown = async () => {
-    for (let i = 29; i >= 0; i--) {
+    for (let i = 59; i >= 0; i--) {
       await new Promise((r) => setTimeout(r, 1000));
       setTime(i);
     }

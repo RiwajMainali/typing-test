@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, NavItem, NavLink, NavbarBrand, Nav } from "reactstrap";
+
 import Input from "./components/Input";
 import Timer from "./components/Timer";
 import Stats from "./components/Stats";
+
+import Popup from "./components/Popup/Popup";
 
 const totalTime = 60;
 function App() {
@@ -10,7 +12,9 @@ function App() {
   const [startTimer, setStartTimer] = useState(false);
   const [stats, setStats] = useState([]);
   const [modalIsOpen, modalToggle] = useState(false);
-
+  const [isShowLogin, setIsShowLogin] = useState(false);
+  const [Login, setLogin] = useState([]);
+  const [loginTemp, setLoginTemp] = useState([]);
   const startCountdown = async () => {
     for (let i = totalTime - 1; i >= 0; i--) {
       await new Promise((r) => setTimeout(r, 1000));
@@ -32,23 +36,33 @@ function App() {
       const wpm = stats[0];
     }
   }, [stats]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <>
-      <Navbar>
-        <NavbarBrand></NavbarBrand>
-        <Nav className="mr-2ex" navbar>
-          <NavItem>
-            <NavLink
-              href="https://github.com/RiwajMainali/typing-test"
-              target="_blank"
-            >
-              <div className="link">Github</div>
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Navbar>
+      <div className="outer-Login">
+        <button className="button-23" onClick={() => setIsShowLogin(true)}>
+          {" "}
+          login
+        </button>
+      </div>
+      <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
+        <form onSubmit={handleSubmit} className="loginForm">
+          <label className="username">
+            <input type="text" placeholder="username" onChange={setLoginTemp} />
+          </label>
+          <br />
+          <label className="password">
+            <input type="password" placeholder="password" />
+          </label>
 
+          <button type="submit" className="button-23">
+            login
+          </button>
+        </form>
+      </Popup>
       <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
       <Timer>{time}</Timer>
       <Input
