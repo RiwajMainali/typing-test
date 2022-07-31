@@ -63,25 +63,43 @@ function App() {
           </button>
         </form>
       </Popup>
-      <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
-      <Timer>{time}</Timer>
-      <Input
-        signalStart={() => {
-          if (!startTimer) {
-            setStartTimer(true);
-            startCountdown();
-          }
-        }}
-        time={time}
-        setStats={setStats}
-      />
-      <Stats
-        isOpen={modalIsOpen}
-        toggle={async () => {
-          modalToggle(false);
-        }}
-        stats={stats}
-      />
+      <div className="mainDiv">
+        <Navbar>
+          <NavbarBrand></NavbarBrand>
+          <Nav className="mr-2ex" navbar>
+            <NavItem>
+              <NavLink
+                href="https://github.com/RiwajMainali/typing-test"
+                target="_blank"
+              >
+                <div className="link">Github</div>
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
+        <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
+        <Timer>{time}</Timer>
+        <Input
+          signalStart={() => {
+            if (!startTimer) {
+              setStartTimer(true);
+              startCountdown();
+            }
+          }}
+          time={time}
+          setStats={setStats}
+        />
+        <h3 style={{ textAlign: "center" }}>
+          Click in the box and start typing!
+        </h3>
+        <Stats
+          isOpen={modalIsOpen}
+          toggle={async () => {
+            modalToggle(false);
+          }}
+          stats={stats}
+        />
+      </div>
     </>
   );
 }
