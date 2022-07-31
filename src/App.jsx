@@ -42,41 +42,32 @@ function App() {
 
   return (
     <>
-      <div className="outer-Login">
-        <button className="button-23" onClick={() => setIsShowLogin(true)}>
-          {" "}
-          login
-        </button>
-      </div>
-      <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
-        <form onSubmit={handleSubmit} className="loginForm">
-          <label className="username">
-            <input type="text" placeholder="username" onChange={setLoginTemp} />
-          </label>
-          <br />
-          <label className="password">
-            <input type="password" placeholder="password" />
-          </label>
-
-          <button type="submit" className="button-23">
+      <div className="mainDiv">
+        <div className="outer-Login">
+          <button className="button-23" onClick={() => setIsShowLogin(true)}>
+            {" "}
             login
           </button>
-        </form>
-      </Popup>
-      <div className="mainDiv">
-        <Navbar>
-          <NavbarBrand></NavbarBrand>
-          <Nav className="mr-2ex" navbar>
-            <NavItem>
-              <NavLink
-                href="https://github.com/RiwajMainali/typing-test"
-                target="_blank"
-              >
-                <div className="link">Github</div>
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
+        </div>
+        <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
+          <form onSubmit={handleSubmit} className="loginForm">
+            <label className="username">
+              <input
+                type="text"
+                placeholder="username"
+                onChange={setLoginTemp}
+              />
+            </label>
+            <br />
+            <label className="password">
+              <input type="password" placeholder="password" />
+            </label>
+
+            <button type="submit" className="button-23">
+              login
+            </button>
+          </form>
+        </Popup>
         <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
         <Timer>{time}</Timer>
         <Input

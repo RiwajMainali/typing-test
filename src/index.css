@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -154,7 +154,8 @@ p {
   color: #dddddd;
   cursor: not-allowed;
   opacity: 1;
+}
 .mainDiv {
   background-color: lightgray;
-  min-height:100vh;
+  min-height: 100vh;
 }
