@@ -3,9 +3,15 @@ import React, { useEffect, useState } from "react";
 import Input from "./components/Input";
 import Timer from "./components/Timer";
 import Stats from "./components/Stats";
-
+import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
-
+window.addEventListener(
+  "load",
+  function () {
+    new Accessibility();
+  },
+  false
+);
 const totalTime = 60;
 function App() {
   const [time, setTime] = useState(totalTime);
