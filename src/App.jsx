@@ -35,6 +35,7 @@ function App() {
 
   return (
     <>
+    <div className="mainDiv"> 
       <Navbar>
         <NavbarBrand></NavbarBrand>
         <Nav className="mr-2ex" navbar>
@@ -68,6 +69,7 @@ function App() {
         }}
         stats={stats}
       />
+      </div>
     </>
   );
 }
