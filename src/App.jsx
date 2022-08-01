@@ -74,7 +74,7 @@ function App() {
             </button>
           </form>
         </Popup>
-        <h2 style={{ textAlign: "center" }}>Test your typing skills :)</h2>
+        <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <Timer>{time}</Timer>
         <Input
           signalStart={() => {
