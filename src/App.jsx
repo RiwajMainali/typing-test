@@ -50,8 +50,11 @@ function App() {
     <>
       <div className="mainDiv">
         <div className="outer-Login">
-          <button className="button-23" onClick={() => setIsShowLogin(true)}>
-            {" "}
+          <button
+            className="button-23"
+            onClick={() => setIsShowLogin(true)}
+            alt="login popup button"
+          >
             login
           </button>
         </div>
@@ -62,14 +65,15 @@ function App() {
                 type="text"
                 placeholder="username"
                 onChange={setLoginTemp}
+                alt="username"
               />
             </label>
             <br />
             <label className="password">
-              <input type="password" placeholder="password" />
+              <input type="password" placeholder="password" alt="password" />
             </label>
 
-            <button type="submit" className="button-23">
+            <button type="submit" className="button-23" alt="submit button">
               login
             </button>
           </form>
