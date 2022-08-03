@@ -11,6 +11,7 @@ export default function Input(props) {
   const [userInput, setUserInput] = useState("");
   const [wrongInput, setWrongInput] = useState(false);
   const [completedWords, setCompletedWords] = useState([]);
+  const [chart, setChart] = useState([]);
   const focusInput = () => {
     textInputRef.current.focus();
   };
@@ -69,7 +70,6 @@ export default function Input(props) {
 
     return [correctWordsCount, characterCount, accuracyRate];
   };
-
   useEffect(() => {
     if (time === 0) {
       setStats(countWordsCharsAndAcc());
@@ -83,51 +83,53 @@ export default function Input(props) {
     }
   }, [time]);
   return (
-    <div
-      className="input-form bg-dark"
-      id="tooltip-target"
-      onClick={(e) => {
-        focusInput();
-      }}
-    >
-      <div className="input-field-wrapper text-white">
-        <div style={{ display: "flex", float: "right", textAlign: "right" }}>
-          {completedWords.slice(-10).map((val, i) => {
-            return (
-              <span
-                key={i}
-                className={`word ${
-                  val.correct ? "completed" : "completed-wrong"
-                }`}
-              >
-                {val.word}
-              </span>
-            );
-          })}
+    <div>
+      <div
+        className="input-form bg-dark"
+        id="tooltip-target"
+        onClick={(e) => {
+          focusInput();
+        }}
+      >
+        <div className="input-field-wrapper text-white">
+          <div style={{ display: "flex", float: "right", textAlign: "right" }}>
+            {completedWords.slice(-10).map((val, i) => {
+              return (
+                <span
+                  key={i}
+                  className={`word ${
+                    val.correct ? "completed" : "completed-wrong"
+                  }`}
+                >
+                  {val.word}
+                </span>
+              );
+            })}
 
-          <div
-            className={`input-field ${wrongInput ? "wrong" : "correct"}`}
-            spellCheck="false"
-            autoCapitalize="off"
-            autoCorrect="off"
-            autoComplete="off"
-            contentEditable
-            ref={textInputRef}
-            onInput={(e) => {
-              setUserInput(e.currentTarget.textContent);
-            }}
-            onKeyPress={submitWord}
-          ></div>
+            <div
+              className={`input-field ${wrongInput ? "wrong" : "correct"}`}
+              spellCheck="false"
+              autoCapitalize="off"
+              autoCorrect="off"
+              autoComplete="off"
+              contentEditable
+              ref={textInputRef}
+              onInput={(e) => {
+                setUserInput(e.currentTarget.textContent);
+              }}
+              onKeyPress={submitWord}
+            ></div>
+          </div>
+        </div>
+        <div className="words-list">
+          {targetWords.map((w, i) => (
+            <span key={i} ref={i === 0 ? targetWordRef : null} className="word">
+              {w}
+            </span>
+          ))}
         </div>
       </div>
-
-      <div className="words-list">
-        {targetWords.map((w, i) => (
-          <span key={i} ref={i === 0 ? targetWordRef : null} className="word">
-            {w}
-          </span>
-        ))}
-      </div>
+      <h3 style={{ textAlign: "center" }}>{chart[0]}</h3>
     </div>
   );
 }

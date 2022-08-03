@@ -5,6 +5,7 @@ import Timer from "./components/Timer";
 import Stats from "./components/Stats";
 import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
+import Chart from "./components/Chart";
 window.addEventListener(
   "load",
   function () {
@@ -90,9 +91,7 @@ function App() {
           time={time}
           setStats={setStats}
         />
-        <h3 style={{ textAlign: "center" }}>
-          Click in the box and start typing!
-        </h3>
+
         <Stats
           isOpen={modalIsOpen}
           toggle={async () => {
@@ -101,6 +100,7 @@ function App() {
           stats={stats}
         />
       </div>
+      <Chart />
     </>
   );
 }
