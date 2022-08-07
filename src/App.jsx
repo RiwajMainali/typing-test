@@ -6,6 +6,10 @@ import Stats from "./components/Stats";
 import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
 import Chart from "./components/Chart";
+import Login from "./components/Account/Login";
+import Dashboard from "./components/Account/Dashboard";
+import Register from "./components/Account/Register";
+import Reset from "./components/Account/Reset";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 window.addEventListener(
   "load",
@@ -56,17 +60,10 @@ function App() {
             onClick={() => setIsShowLogin(true)}
             alt="login popup button"
           >
-            login
+            Account
           </button>
         </div>
-        <Router>
-          <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
-            <Routes>
-              <Route path="/login" element="test" />
-              <Route path="/register" element="test2" />
-            </Routes>
-          </Popup>
-        </Router>
+        <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}></Popup>
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <Timer>{time}</Timer>
         <Input
