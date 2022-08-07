@@ -76,7 +76,9 @@ function App() {
           time={time}
           setStats={setStats}
         />
-
+        <h3 style={{ textAlign: "center" }}>
+          Click in the box and start typing!
+        </h3>
         <Stats
           isOpen={modalIsOpen}
           toggle={async () => {
@@ -85,7 +87,6 @@ function App() {
           stats={stats}
         />
       </div>
-      <Chart />
     </>
   );
 }
