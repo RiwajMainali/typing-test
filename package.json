@@ -9,6 +9,7 @@
     "accessibility": "^3.0.17",
     "bootstrap": "^5.2.0",
     "firebase": "^9.9.1",
+    "firebaseui": "^6.0.1",
     "path-browserify": "^1.0.1",
     "random-words": "^1.2.0",
     "react": "^18.2.0",

@@ -5,7 +5,6 @@ export default function Popup(props) {
     <>
       <div className="Popup">
         <div className="Popup-inner">
-          <h1>Login</h1>
           <button
             className="button-23  close-btn"
             onClick={() => props.setTrigger(false)}

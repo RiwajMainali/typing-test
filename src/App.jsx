@@ -6,6 +6,7 @@ import Stats from "./components/Stats";
 import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
 import Chart from "./components/Chart";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 window.addEventListener(
   "load",
   function () {
@@ -20,8 +21,7 @@ function App() {
   const [stats, setStats] = useState([]);
   const [modalIsOpen, modalToggle] = useState(false);
   const [isShowLogin, setIsShowLogin] = useState(false);
-  const [Login, setLogin] = useState([]);
-  const [loginTemp, setLoginTemp] = useState([]);
+
   const startCountdown = async () => {
     for (let i = totalTime - 1; i >= 0; i--) {
       await new Promise((r) => setTimeout(r, 1000));
@@ -59,26 +59,14 @@ function App() {
             login
           </button>
         </div>
-        <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
-          <form onSubmit={handleSubmit} className="loginForm">
-            <label className="username">
-              <input
-                type="text"
-                placeholder="username"
-                onChange={setLoginTemp}
-                alt="username"
-              />
-            </label>
-            <br />
-            <label className="password">
-              <input type="password" placeholder="password" alt="password" />
-            </label>
-
-            <button type="submit" className="button-23" alt="submit button">
-              login
-            </button>
-          </form>
-        </Popup>
+        <Router>
+          <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
+            <Routes>
+              <Route path="/login" element="test" />
+              <Route path="/register" element="test2" />
+            </Routes>
+          </Popup>
+        </Router>
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <Timer>{time}</Timer>
         <Input
