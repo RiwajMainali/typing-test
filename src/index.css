@@ -160,13 +160,13 @@ p {
 }
 
 .button-24 {
-  background-color: #ffffff;
-  border: 1px solid #222222;
+  background-color: lightgray;
+  border: 0px solid #222222;
   border-radius: 8px;
   box-sizing: border-box;
   color: #222222;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     "Helvetica Neue", sans-serif;
   font-size: 25px;
@@ -185,3 +185,4 @@ p {
   -webkit-user-select: none;
   width: auto;
 }
+

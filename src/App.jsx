@@ -77,20 +77,22 @@ function App() {
           </button>
         </div>
         <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}></Popup>
-        <button 
+        <button
         className="button-24"
         onClick={setInitialTime60}>
-          60
+          ⌚60
           </button>
-         <div></div> 
+        <div></div>
         <button 
         className="button-24"
-        onClick={setInitialTime30}>30
+        onClick={setInitialTime30}>
+          ⌚30
         </button>
         <div></div>
         <button 
         className="button-24"
-        onClick={setInitialTime15}>15
+        onClick={setInitialTime15}>
+          ⌚15
         </button>
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <Timer>{time}</Timer>
