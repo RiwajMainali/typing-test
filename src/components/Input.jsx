@@ -64,11 +64,11 @@ export default function Input(props) {
     correctWordsArr.forEach((val) => {
       characterCount += val.word.length;
     });
-
+    characterCount = characterCount + correctWordsCount;
     let accuracyRate = correctWordsCount / totalWordsCount;
-    accuracyRate = (accuracyRate * 100).toFixed(3);
-
-    return [correctWordsCount, characterCount, accuracyRate];
+    accuracyRate = (accuracyRate * 100).toFixed(2);
+    accuracyRate = (accuracyRate - 300.0).toFixed(2);
+    return [characterCount / 5, characterCount, accuracyRate];
   };
   useEffect(() => {
     if (time === 0) {
