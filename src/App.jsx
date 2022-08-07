@@ -18,8 +18,9 @@ window.addEventListener(
   },
   false
 );
-const totalTime = 60;
+
 function App() {
+  const [totalTime, setTotalTime] = useState(60);
   const [time, setTime] = useState(totalTime);
   const [startTimer, setStartTimer] = useState(false);
   const [stats, setStats] = useState([]);
@@ -51,6 +52,18 @@ function App() {
     e.preventDefault();
   };
 
+  const setInitialTime30 = (time) => {
+    setTotalTime(30);
+    setTime(30);
+  };
+  const setInitialTime15 = (time) => {
+    setTotalTime(15);
+    setTime(15);
+  };
+  const setInitialTime60 = (time) => {
+    setTotalTime(60);
+    setTime(60);
+  };
   return (
     <>
       <div className="mainDiv">
@@ -64,6 +77,9 @@ function App() {
           </button>
         </div>
         <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}></Popup>
+        <button onClick={setInitialTime60}>60</button>
+        <button onClick={setInitialTime30}>30</button>
+        <button onClick={setInitialTime15}>15</button>
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <Timer>{time}</Timer>
         <Input
@@ -75,6 +91,7 @@ function App() {
           }}
           time={time}
           setStats={setStats}
+          totalTime={totalTime}
         />
         <h3 style={{ textAlign: "center" }}>
           Click in the box and start typing!

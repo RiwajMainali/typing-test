@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import randomWords from "random-words";
 
 export default function Input(props) {
-  const { signalStart, setStats, time } = props;
+  const { signalStart, setStats, time, totalTime } = props;
   const textInputRef = useRef();
   const targetWordRef = useRef();
   const [targetWords, setTargetWords] = useState(randomWords(10));
@@ -59,7 +59,7 @@ export default function Input(props) {
     let correctWordsArr = completedWords.filter((obj) => {
       return obj.correct;
     });
-    let correctWordsCount = correctWordsArr.length;
+    let correctWordsCount = correctWordsArr.length * (60 / totalTime);
     let characterCount = 0;
     correctWordsArr.forEach((val) => {
       characterCount += val.word.length;
