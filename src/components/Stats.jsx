@@ -10,25 +10,25 @@ export default function Stats(props) {
         <ModalBody className="stat-board">
           <div>
             <div className="stat">
-              <h4>{stats[0]}</h4>
+              <h1 alt="words per min">{stats[0]}</h1>
             </div>
             <p>words/min</p>
           </div>
           <div>
             <div className="stat">
-              <h4>{stats[1]}</h4>
+              <h1 alt="character per min">{stats[1]}</h1>
             </div>
             <p>characters/min</p>
           </div>
           <div>
             <div className="stat">
-              <h4>{stats[2]}</h4>
+              <h1 alt="accuracy percentage">{stats[2]}</h1>
             </div>
             <p>% accuracy</p>
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button onClick={toggle} color="warning">
+          <Button onClick={toggle} color="warning" alt="Try again">
             Try Again!
           </Button>
         </ModalFooter>
