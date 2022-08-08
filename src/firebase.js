@@ -15,27 +15,21 @@ import {
   collection,
   where,
   addDoc,
-} from "firebase/firestore";
+} from "@firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6lwBplXoc_7ktR5GxRnel7Yersp71STs",
-
   authDomain: "typing-test-f6af3.firebaseapp.com",
-
   projectId: "typing-test-f6af3",
-
   storageBucket: "typing-test-f6af3.appspot.com",
-
   messagingSenderId: "128111860838",
-
   appId: "1:128111860838:web:4f6f19166dc7cc97be21a7",
-
   measurementId: "G-GNYEGWLRWK",
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 const googleProvider = new GoogleAuthProvider();
 

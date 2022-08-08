@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import randomWords from "random-words";
+import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 
 export default function Input(props) {
   const { signalStart, setStats, time, totalTime } = props;
@@ -64,10 +65,9 @@ export default function Input(props) {
     correctWordsArr.forEach((val) => {
       characterCount += val.word.length;
     });
-    characterCount = characterCount + correctWordsCount;
     let accuracyRate = correctWordsCount / totalWordsCount;
-    accuracyRate = (accuracyRate * 100).toFixed(2);
-    accuracyRate = (accuracyRate - 300.0).toFixed(2);
+    accuracyRate = (accuracyRate * 100 * (totalTime / 60)).toFixed(2);
+    characterCount = characterCount + correctWordsCount;
     return [characterCount / 5, characterCount, accuracyRate];
   };
   useEffect(() => {

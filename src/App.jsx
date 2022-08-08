@@ -5,12 +5,6 @@ import Timer from "./components/Timer";
 import Stats from "./components/Stats";
 import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
-import Chart from "./components/Chart";
-import Login from "./components/Account/Login";
-import Dashboard from "./components/Account/Dashboard";
-import Register from "./components/Account/Register";
-import Reset from "./components/Account/Reset";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 window.addEventListener(
   "load",
   function () {
@@ -20,7 +14,7 @@ window.addEventListener(
 );
 
 function App() {
-  const [totalTime, setTotalTime] = useState(60);
+  const [totalTime, setTotalTime] = useState(30);
   const [time, setTime] = useState(totalTime);
   const [startTimer, setStartTimer] = useState(false);
   const [stats, setStats] = useState([]);
@@ -77,24 +71,21 @@ function App() {
           </button>
         </div>
         <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}></Popup>
-        <button
-        className="button-24"
-        onClick={setInitialTime60}>
-          ⌚60
-          </button>
-        <div></div>
-        <button 
-        className="button-24"
-        onClick={setInitialTime30}>
-          ⌚30
-        </button>
-        <div></div>
-        <button 
-        className="button-24"
-        onClick={setInitialTime15}>
-          ⌚15
-        </button>
+
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
+        <span>
+          <button className="button-25" onClick={setInitialTime60}>
+            ⌚60
+          </button>
+
+          <button className="button-25" onClick={setInitialTime30}>
+            ⌚30
+          </button>
+
+          <button className="button-25" onClick={setInitialTime15}>
+            ⌚15
+          </button>
+        </span>
         <Timer>{time}</Timer>
         <Input
           signalStart={() => {
@@ -107,6 +98,7 @@ function App() {
           setStats={setStats}
           totalTime={totalTime}
         />
+        <br />
         <h3 style={{ textAlign: "center" }}>
           Click in the box and start typing!
         </h3>

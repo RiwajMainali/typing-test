@@ -186,3 +186,19 @@ p {
   width: auto;
 }
 
+.button-25 {
+  background-color: lightgray;
+  border: 0px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: flex;
+
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+}
