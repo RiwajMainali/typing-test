@@ -16,7 +16,7 @@
   padding: 32px;
   width: 100%;
   max-width: 640px;
-  background-color: #fff;
+  background-color: lightgray;
 }
 
 .button-23 {
@@ -44,6 +44,7 @@
   user-select: none;
   -webkit-user-select: none;
   width: auto;
+  top: 12px;
 }
 
 .button-23:focus-visible {

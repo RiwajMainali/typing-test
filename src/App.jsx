@@ -5,6 +5,14 @@ import Timer from "./components/Timer";
 import Stats from "./components/Stats";
 import { Accessibility } from "accessibility/src/main";
 import Popup from "./components/Popup/Popup";
+
+import Login from "./components/Account/Login";
+import Dashboard from "./components/Account/Dashboard";
+import Register from "./components/Account/Register";
+import Reset from "./components/Account/Reset";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
 window.addEventListener(
   "load",
   function () {
@@ -14,13 +22,21 @@ window.addEventListener(
 );
 
 function App() {
+  const [user, setUser] = useState([]);
+  const usersCollectionRef = collection(db, "users");
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      console.log(data);
+    };
+    getUsers();
+  }, []);
   const [totalTime, setTotalTime] = useState(30);
   const [time, setTime] = useState(totalTime);
   const [startTimer, setStartTimer] = useState(false);
   const [stats, setStats] = useState([]);
   const [modalIsOpen, modalToggle] = useState(false);
   const [isShowLogin, setIsShowLogin] = useState(false);
-
   const startCountdown = async () => {
     for (let i = totalTime - 1; i >= 0; i--) {
       await new Promise((r) => setTimeout(r, 1000));
@@ -58,6 +74,7 @@ function App() {
     setTotalTime(60);
     setTime(60);
   };
+
   return (
     <>
       <div className="mainDiv">
@@ -70,7 +87,20 @@ function App() {
             Account
           </button>
         </div>
-        <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}></Popup>
+        <div>
+          <Popup Trigger={isShowLogin} setTrigger={setIsShowLogin}>
+            <div>
+              <Router>
+                <Routes>
+                  <Route exact path="/" element={<Login />} />
+                  <Route exact path="/register" element={<Register />} />
+                  <Route exact path="/reset" element={<Reset />} />
+                  <Route exact path="/dashboard" element={<Dashboard />} />
+                </Routes>
+              </Router>
+            </div>
+          </Popup>
+        </div>
 
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
         <span>
