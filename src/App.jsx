@@ -101,21 +101,7 @@ function App() {
             </div>
           </Popup>
         </div>
-
         <h2 style={{ textAlign: "center" }}>Test your typing skills </h2>
-        <span>
-          <button className="button-25" onClick={setInitialTime60}>
-            ⌚60
-          </button>
-
-          <button className="button-25" onClick={setInitialTime30}>
-            ⌚30
-          </button>
-
-          <button className="button-25" onClick={setInitialTime15}>
-            ⌚15
-          </button>
-        </span>
         <Timer>{time}</Timer>
         <Input
           signalStart={() => {
@@ -132,6 +118,20 @@ function App() {
         <h3 style={{ textAlign: "center" }}>
           Click in the box and start typing!
         </h3>
+
+        <span>
+          <button className="button-25" onClick={setInitialTime60}>
+            ⌚60
+          </button>
+
+          <button className="button-25" onClick={setInitialTime30}>
+            ⌚30
+          </button>
+
+          <button className="button-25" onClick={setInitialTime15}>
+            ⌚15
+          </button>
+        </span>
         <Stats
           isOpen={modalIsOpen}
           toggle={async () => {
